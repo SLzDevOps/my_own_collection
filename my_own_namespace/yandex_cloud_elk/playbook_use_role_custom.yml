@@ -1,0 +1,9 @@
+---
+- name: Use my_test_role with custom parameters
+  hosts: localhost
+  gather_facts: no
+  vars:
+    my_own_module_path: /tmp/custom_file.txt
+    my_own_module_content: "Custom content from playbook"
+  roles:
+    - my_test_role

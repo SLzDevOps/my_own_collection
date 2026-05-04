@@ -1,0 +1,4 @@
+---
+# Defaults file for my_test_role
+my_own_module_path: /tmp/default_ansible_file.txt
+my_own_module_content: "Default content from role"
