@@ -4,13 +4,14 @@
 
 ## Установка
 
-### Из Git репозитория
-
-```bash
+Из Git репозитория
+bash
 ansible-galaxy collection install git+https://github.com/SLzDevOps/my_own_collection.git
+
 Из локального архива
 bash
 ansible-galaxy collection install my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz
+
 Модули
 my_own_module
 Создает текстовый файл на указанном хосте с заданным содержимым.
@@ -27,18 +28,20 @@ yaml
   my_own_namespace.yandex_cloud_elk.my_own_module:
     path: /tmp/example.txt
     content: "Hello, Ansible!"
+  
 В составе роли:
-
 yaml
 - name: Create file from role
   my_own_namespace.yandex_cloud_elk.my_own_module:
     path: "{{ my_own_module_path }}"
     content: "{{ my_own_module_content }}"
+
 Возвращаемые значения
 Ключ	Тип	Описание
 path	str	Путь к созданному файлу
 content	str	Содержимое файла
 changed	bool	Был ли файл создан или изменен
+
 Роли
 my_test_role
 Демонстрационная роль для использования модуля my_own_module.
@@ -56,16 +59,11 @@ yaml
     my_own_module_content: "Custom content"
   roles:
     - my_test_role
+
 Тестирование
 Проверка идемпотентности
+
 Модуль поддерживает идемпотентность:
-
 При первом запуске файл создается (changed=true)
-
 При повторном запуске с тем же содержимым изменений нет (changed=false)
 
-Лицензия
-MIT
-
-Автор
-SLzDevOps
